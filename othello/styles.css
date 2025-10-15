@@ -1,0 +1,72 @@
+:root {
+  --board-size: 480px;
+  --cell: calc(var(--board-size) / 8);
+  --green: #147a3b;
+  --green-dark: #0f5c2c;
+  --black: #111;
+  --white: #f8f8f8;
+  --legal: #ffcc00aa;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: #0b3d1c;
+  color: #fff;
+  display: grid;
+  place-items: start center;
+  padding: 24px;
+}
+
+#app { width: min(96vw, 720px); }
+.topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.controls { display: flex; gap: 12px; align-items: center; }
+button { cursor: pointer; border: 0; border-radius: 8px; padding: 8px 12px; background: #205e2f; color: #fff; }
+button:hover { background: #28733a; }
+
+.board {
+  width: var(--board-size);
+  height: var(--board-size);
+  background: var(--green);
+  border: 8px solid var(--green-dark);
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  gap: 2px;
+  margin-top: 16px;
+}
+.cell {
+  width: var(--cell);
+  height: var(--cell);
+  background: #126b34;
+  position: relative;
+}
+.cell button {
+  all: unset;
+  cursor: pointer;
+  position: absolute;
+  inset: 0;
+}
+.cell button:focus { outline: 2px solid #ffe066; outline-offset: -2px; }
+.disc {
+  width: calc(var(--cell) * 0.8);
+  height: calc(var(--cell) * 0.8);
+  border-radius: 50%;
+  margin: calc(var(--cell) * 0.1);
+  box-shadow: inset 0 3px 8px #0006, inset 0 -3px 8px #fff4;
+}
+.disc.black { background: var(--black); }
+.disc.white { background: var(--white); }
+.hint::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--legal);
+  border-radius: 4px;
+}
+.status { margin-top: 12px; min-height: 1.4em; }
+.footer { margin-top: 16px; opacity: 0.8; }
+@media (max-width: 520px) { :root { --board-size: 92vw; } }
