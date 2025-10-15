@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>オセロ</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <h1>オセロ</h1>
+
+    <div class="controls">
+      <div class="score">
+        <span class="score-item"><span class="disc-icon black"></span><span id="blackCount">2</span></span>
+        <span class="score-item"><span class="disc-icon white"></span><span id="whiteCount">2</span></span>
+      </div>
+      <div class="turn" id="turn">手番: 黒</div>
+      <div class="buttons">
+        <label class="hints"><input type="checkbox" id="hintsToggle" checked> ヒント</label>
+        <button id="passBtn" disabled>パス</button>
+        <button id="undoBtn" disabled>一手戻す</button>
+        <button id="restartBtn">リスタート</button>
+      </div>
+    </div>
+
+    <div id="message" class="message"></div>
+
+    <div id="board" class="board" aria-label="オセロ盤面"></div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
